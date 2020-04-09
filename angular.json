@@ -24,7 +24,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": []
           },
@@ -119,6 +120,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "matToolBox"
+    }
+  },
+  "defaultProject": "matToolBox",
+  "cli": {
+    "analytics": "61ea18a4-e6be-4d0a-8b3d-b343b8f30b67"
+  }
 }

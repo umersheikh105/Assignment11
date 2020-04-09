@@ -6,6 +6,91 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <script>
+
+
+    function playGame(){
+
+      var rows = document.forms[1].elements[0].value;
+      var cols = document.forms[1].elements[1].value;
+
+      var matrix = [];
+      
+      for(var i=0; i<rows; i++){
+        matrix[i] = [];
+        for(var j=0; j<cols; j++){
+          matrix[i][j] = Math.floor(Math.random() *100 + 1);
+        }
+      }
+
+      var transposedMatrix = [];
+      for(var i=0; i<cols; i++){
+        transposedMatrix[i]=[];
+        for(var j=0; j<rows; j++){
+          transposedMatrix[i][j]=matrix[j][i];
+        }
+      }
+
+      
+      
+      document.write("<head>")
+      document.write('<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">')
+      document.write("</head>")
+      document.write("<body>")
+      document.write('<div class="container">')
+      document.write('<table class="table table-striped" table-bordered table-hover>')
+      document.write("<center><h1>Below is a Matrix with ",rows," rows and ",cols, " columns</h1></center><br>")
+      for(var i=0;i<rows;i++){
+        document.write('<tr>')
+          for(var j=0; j<cols; j++){
+            document.write('<td>',matrix[i][j],'</td>')
+          }
+          document.write('</tr>')
+      }
+      document.write('</table>')
+      document.write("<hr>")
+      document.write('<table class="table table-striped" table-bordered table-hover>')
+      document.write("<center><h1>Below is the Transposed Matrix with ",cols," rows and ",rows, " columns</h1></center><br>")
+     
+      for(var i=0;i<cols;i++){
+        document.write('<tr>')
+          for(var j=0; j<rows; j++){
+            document.write('<td>',transposedMatrix[i][j],'</td>')
+          }
+          document.write('</tr>')
+      }
+      document.write('</table>')
+      if(rows==cols){
+        var sumMatrix = [];
+        for(var i=0; i<rows; i++){
+          sumMatrix[i]=[];
+          for(var j=0; j<cols; j++){
+            sumMatrix[i][j] = matrix[i][j] + transposedMatrix[i][j];
+          }
+        }
+        document.write("<hr>")
+        document.write('<table class="table table-striped" table-bordered table-hover>')
+        document.write("<center><h1>Below is the added Matrix with ",rows," rows and ",cols, " columns</h1></center><br>")
+        for(var i=0;i<rows;i++){
+          document.write('<tr>')
+            for(var j=0; j<cols; j++){
+              document.write('<td>',sumMatrix[i][j],'</td>')
+            }
+            document.write('</tr>')
+        }
+      document.write('</table>')
+      }
+      document.write("<hr>")
+      document.write('<p> When you add a square matrix and its transpose, we find that the resulting matrix is actually <mark>symmetric</mark>. In other words, <mark>the resulting matrix and its transpose would be equal</mark></p>');
+      document.write("</div>");
+      document.write("</body>")
+
+
+
+    }
+    
+
+  </script>
 </head>
 <body>
   <app-root></app-root>
